@@ -3,7 +3,8 @@ import { getWeatherApiUrl } from './api'
 
 export const getWeather = async ({ coords }: { coords: Coordinates }) => {
   const url = getWeatherApiUrl('current', {
-    ...coords,
+    lat: coords.lat.toString(),
+    lon: coords.lon.toString(),
   })
   const response = await fetch(url)
   return await response.json()

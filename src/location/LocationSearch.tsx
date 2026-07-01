@@ -9,9 +9,7 @@ export const LocationSearch = ({
 }: {
   onSelectLocation: (location: Location) => void
 }) => {
-  const [results] = useState<Location[]>()
   const [searchText, setSearchText] = useState('')
-
   // This avoids hitting the API on every key press
   const debouncedSearchText = useDebouncedState(searchText)
 
@@ -21,11 +19,13 @@ export const LocationSearch = ({
     <>
       <Input type="text" value={searchText} onChangeText={setSearchText} />
       <ul>
-        {results?.map((result) => (
-          <li onClick={() => onSelectLocation(result)}>{result.name}</li>
+        {data?.map((location) => (
+          <li onClick={() => onSelectLocation(location)}>
+            {location.name}, {location.state ? `${location.state}, ` : ''}
+            {location.country}
+          </li>
         )) || 'No results found'}
         {isLoading && 'Loading...'}
-        {JSON.stringify(data)}
       </ul>
     </>
   )
