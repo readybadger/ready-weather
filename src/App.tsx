@@ -1,11 +1,14 @@
+import { CenterColumn } from './layout/CenterColumn'
+import { Header } from './layout/Header'
+
 function App() {
   return (
     <>
-      <header>
-        <span>R⚡︎W</span>
-      </header>
+      <Header />
       <main>
-        <h1>Ready Weather</h1>
+        <CenterColumn className="py-6">
+          <h1>Ready Weather</h1>
+        </CenterColumn>
       </main>
     </>
   )
