@@ -26,7 +26,7 @@ export const WeatherCard = ({
   return (
     <button
       role="button"
-      className={`rounded-md border-b p-1 py-4 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-mist-50 focus-visible:outline-[auto] relative ${selectedClass}`}
+      className={`rounded-md border-b px-2 py-4 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-mist-50 focus-visible:outline-[auto] relative max-md:flex-row max-md:px-4 ${selectedClass}`}
       onClick={onClick}
     >
       {isToday && <Indicator />}
