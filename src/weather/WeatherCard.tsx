@@ -18,7 +18,7 @@ export const WeatherCard = ({
 
   return (
     <div
-      className={`border-2 transition-colors rounded-sm p-1 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-emerald-50 text-selec ${selectedClass}`}
+      className={`border-2 rounded-sm p-1 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-emerald-50 text-selec ${selectedClass}`}
       onClick={onClick}
     >
       <span className="text-lg font-medium">
