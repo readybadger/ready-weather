@@ -86,7 +86,7 @@ export const WeatherDetails = ({ data }: { data: DailyWeatherData }) => {
       <div className="text-neutral-600 italic mb-4">
         {getWeatherCodeDescription(data.weatherCode)}
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between max-md:flex-col max-md:space-y-4 max-md:items-center">
         <TemperatureBlock data={data} />
         <PrecipitationBlock data={data} />
         <WindBlock data={data} />
