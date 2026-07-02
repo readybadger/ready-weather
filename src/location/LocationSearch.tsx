@@ -33,7 +33,7 @@ export const LocationSearch = ({
         onBlur={() => {
           setResultsVisible(false)
         }}
-        className={`w-md p-2 cursor-pointer ${resultsVisible ? 'rounded-b-none' : ''}`}
+        className={`w-md p-2 cursor-pointer ${resultsVisible ? 'rounded-b-none' : 'text-gray-300'}`}
       />
       {debouncedResultsVisible && (
         <LocationOptionsList
