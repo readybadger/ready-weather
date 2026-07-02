@@ -47,10 +47,10 @@ export const LocationSearch = ({
       />
       {debouncedResultsVisible && (
         <LocationOptionsList
+          // If we haven't initiated the first search, treat it as loading
           isLoading={isLoading || !debouncedSearchText}
           options={data}
           onSelectLocation={onSelectLocationProxy}
-          hasSearched={Boolean(debouncedSearchText)}
         />
       )}
     </div>

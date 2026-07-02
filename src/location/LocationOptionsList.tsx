@@ -21,18 +21,12 @@ export const LocationOptionsList = ({
   isLoading,
   options,
   onSelectLocation,
-  hasSearched,
 }: {
   isLoading: boolean
   options?: Location[]
   onSelectLocation: (location: Location) => void
-  hasSearched: boolean
 }) => {
-  const noResultsText = (
-    <div className="p-2">
-      {hasSearched ? 'No results found' : 'Type to start searching...'}
-    </div>
-  )
+  const noResultsText = <div className="p-2">No results found</div>
 
   return (
     <div className="absolute bg-white w-full top-full drop-shadow-sm shadow-neutral-600 rounded-b-md overflow-hidden">
