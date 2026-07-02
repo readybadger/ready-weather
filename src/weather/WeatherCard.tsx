@@ -31,7 +31,7 @@ export const WeatherCard = ({
       href="#weather-details"
     >
       {isToday && <Indicator />}
-      <span className="basis-0 grow max-[30rem]:hidden">
+      <span className="basis-0 grow max-[30rem]:hidden text-neutral-500">
         {dayjs(date).calendar(dayjs(), {
           lastDay: '[Yesterday]',
           lastWeek: 'dddd',
@@ -41,14 +41,9 @@ export const WeatherCard = ({
           sameElse: 'dddd',
         })}
       </span>
-      <span className="flex space-x-1 basis-0 grow justify-center">
-        <span>
-          {Math.floor(data.minTemperature)}
-          {data.temperatureUnit}
-        </span>
-        <span>-</span>
-        <span>
-          {Math.floor(data.maxTemperature)}
+      <span className="flex basis-0 grow justify-center">
+        <span className="font-medium">
+          {Math.floor(data.meanTemperature)}
           {data.temperatureUnit}
         </span>
       </span>
