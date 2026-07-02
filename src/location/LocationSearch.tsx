@@ -19,7 +19,7 @@ export const LocationSearch = ({
   const debouncedSearchText = useDebouncedState(searchText)
   // This avoids having the options unmounted before they capture a click event
   const debouncedResultsVisible = useDebouncedState(
-    searchText && resultsVisible,
+    debouncedSearchText && resultsVisible,
     100,
   )
 
