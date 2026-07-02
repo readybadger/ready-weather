@@ -1,7 +1,5 @@
+import { getLocationLabel } from './location-utils'
 import type { Location } from './types'
-
-const getLocationKey = (location: Location) =>
-  `${location.coords.lat} ${location.coords.lon}`
 
 const LocationOptionItem = ({
   location,
@@ -15,8 +13,7 @@ const LocationOptionItem = ({
       onClick={() => onSelectLocation(location)}
       className="cursor-pointer hover:bg-amber-50 p-2"
     >
-      {location.name}, {location.state ? `${location.state}, ` : ''}
-      {location.country}
+      {getLocationLabel(location)}
     </li>
   )
 }
@@ -44,13 +41,15 @@ export const LocationOptionsList = ({
         <div className="p-2">Loading...</div>
       ) : (
         <ul>
-          {options?.map((location) => (
-            <LocationOptionItem
-              key={getLocationKey(location)}
-              location={location}
-              onSelectLocation={onSelectLocation}
-            />
-          )) || noResultsText}
+          {options?.length
+            ? options.map((location) => (
+                <LocationOptionItem
+                  key={location.id}
+                  location={location}
+                  onSelectLocation={onSelectLocation}
+                />
+              ))
+            : noResultsText}
         </ul>
       )}
     </div>

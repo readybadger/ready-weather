@@ -20,7 +20,7 @@ export const WeatherPage = () => {
   return (
     <CenterColumn className="py-6">
       <LocationSearch onSelectLocation={onSelectLocation} />
-      {location ? <Weather coords={location.coords} /> : <NoLocationMessage />}
+      {location ? <Weather location={location} /> : <NoLocationMessage />}
     </CenterColumn>
   )
 }

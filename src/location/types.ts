@@ -1,11 +1,11 @@
 export type Coordinates = {
-  lat: number
-  lon: number
+  latitude: number
+  longitude: number
 }
 
 export type Location = {
+  id: string
   name: string
   country: string
-  state?: string
   coords: Coordinates
 }
