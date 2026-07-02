@@ -3,6 +3,7 @@ import type { Location } from './types'
 import { Input } from '../ui/Input'
 import { useLocationQuery } from '../api/useLocationQuery'
 import { useDebouncedState } from '../utils/useDebouncedState'
+import { LocationOptionsList } from './LocationOptionsList'
 
 export const LocationSearch = ({
   onSelectLocation,
@@ -10,23 +11,32 @@ export const LocationSearch = ({
   onSelectLocation: (location: Location) => void
 }) => {
   const [searchText, setSearchText] = useState('')
+  const [resultsVisible, setResultsVisible] = useState(false)
+
   // This avoids hitting the API on every key press
   const debouncedSearchText = useDebouncedState(searchText)
 
   const { data, isLoading } = useLocationQuery({ search: debouncedSearchText })
 
   return (
-    <>
-      <Input type="text" value={searchText} onChangeText={setSearchText} />
-      <ul>
-        {data?.map((location) => (
-          <li onClick={() => onSelectLocation(location)}>
-            {location.name}, {location.state ? `${location.state}, ` : ''}
-            {location.country}
-          </li>
-        )) || 'No results found'}
-        {isLoading && 'Loading...'}
-      </ul>
-    </>
+    <div className="flex relative w-md">
+      <Input
+        type="text"
+        placeholder="Search for a location..."
+        value={searchText}
+        onChangeText={setSearchText}
+        onFocus={() => setResultsVisible(true)}
+        onBlur={() => setResultsVisible(false)}
+        className={`w-md p-2 cursor-pointer ${resultsVisible ? 'rounded-b-none' : ''}`}
+      />
+      {resultsVisible && (
+        <LocationOptionsList
+          isLoading={isLoading}
+          options={data}
+          onSelectLocation={onSelectLocation}
+          hasSearched={Boolean(debouncedSearchText)}
+        />
+      )}
+    </div>
   )
 }
