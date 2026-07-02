@@ -17,6 +17,7 @@ I will try each of the alternatives out to see which feels the best in terms of 
   
 **Cons:**
 - Requires API key
+- Requires multiple API calls to different endpoints for weather data
 
 ### [**Open-Meteo**](https://open-meteo.com/)
 **Pros:**
