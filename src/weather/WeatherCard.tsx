@@ -24,13 +24,14 @@ export const WeatherCard = ({
   const isToday = date.isSame(dayjs(), 'day')
 
   return (
-    <button
+    <a
       role="button"
-      className={`rounded-md border-b px-2 py-4 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-mist-50 focus-visible:outline-[auto] relative max-md:flex-row max-md:px-4 ${selectedClass}`}
+      className={`rounded-md border-b px-2 py-3 space-y-2 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-mist-50 focus-visible:outline-[auto] relative max-md:flex-row max-md:px-4 max-md:space-y-0 max-[30rem]:flex-row-reverse ${selectedClass}`}
       onClick={onClick}
+      href="#weather-details"
     >
       {isToday && <Indicator />}
-      <span className="text-lg font-medium">
+      <span className="basis-0 grow max-[30rem]:hidden">
         {dayjs(date).calendar(dayjs(), {
           lastDay: '[Yesterday]',
           lastWeek: 'dddd',
@@ -40,7 +41,18 @@ export const WeatherCard = ({
           sameElse: 'dddd',
         })}
       </span>
-      <span>{date.format('DD MMM')}</span>
-    </button>
+      <span className="flex space-x-1 basis-0 grow justify-center">
+        <span>
+          {Math.floor(data.minTemperature)}
+          {data.temperatureUnit}
+        </span>
+        <span>-</span>
+        <span>
+          {Math.floor(data.maxTemperature)}
+          {data.temperatureUnit}
+        </span>
+      </span>
+      <span className="basis-0 grow">{date.format('DD MMM')}</span>
+    </a>
   )
 }

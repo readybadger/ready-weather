@@ -35,7 +35,9 @@ export const Weather = ({
           onSelect={({ date }) => setSelectedDate(date)}
         />
       )}
-      {selected && <WeatherDetails data={selected} />}
+      <div id="weather-details" className="self-center">
+        {selected && <WeatherDetails data={selected} />}
+      </div>
     </div>
   )
 }

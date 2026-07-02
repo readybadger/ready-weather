@@ -33,7 +33,7 @@ export const LocationSearch = ({
   }
 
   return (
-    <div className={`flex relative w-md z-10 ${className ?? ''}`}>
+    <div className={`flex relative w-md max-w-full z-10 ${className ?? ''}`}>
       <Input
         type="text"
         placeholder="🔎 Search for a location..."
