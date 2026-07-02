@@ -24,7 +24,7 @@ export const Input = ({
     <input
       {...inputProps}
       onChange={onInputChange}
-      className={`border-stone-200 bg-white border rounded-md ${className || ''}`}
+      className={` bg-white rounded-lg border-b border-b-emerald-200 ${className || ''}`}
     />
   )
 }

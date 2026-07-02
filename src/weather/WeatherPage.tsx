@@ -19,7 +19,7 @@ export const WeatherPage = () => {
 
   return (
     <CenterColumn className="py-6 flex flex-col justify-center items-center text-center">
-      <LocationSearch onSelectLocation={onSelectLocation} className="mb-4" />
+      <LocationSearch onSelectLocation={onSelectLocation} className="mb-10" />
       {location ? (
         <Weather location={location} measurementSystem={measurementSystem} />
       ) : (

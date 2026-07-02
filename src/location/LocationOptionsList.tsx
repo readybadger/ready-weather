@@ -1,4 +1,3 @@
-import { getLocationLabel } from './location-utils'
 import type { Location } from './types'
 
 const LocationOptionItem = ({
@@ -13,7 +12,7 @@ const LocationOptionItem = ({
       onClick={() => onSelectLocation(location)}
       className="cursor-pointer hover:bg-mist-50 p-2"
     >
-      {getLocationLabel(location)}
+      <span className="font-semibold">{location.name}</span>, {location.country}
     </li>
   )
 }
@@ -36,7 +35,7 @@ export const LocationOptionsList = ({
   )
 
   return (
-    <div className="absolute bg-white border border-stone-200 border-t-0 w-full top-full drop-shadow-md z-20 shadow-black rounded-b-md">
+    <div className="absolute bg-white w-full top-full drop-shadow-sm shadow-neutral-600 rounded-b-md overflow-hidden">
       {isLoading ? (
         <div className="p-2">Loading...</div>
       ) : (

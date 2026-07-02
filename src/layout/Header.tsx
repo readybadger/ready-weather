@@ -3,7 +3,7 @@ import { LogoLink } from './LogoLink'
 
 export const Header = () => {
   return (
-    <header className="bg-mist-600 py-6">
+    <header className="bg-emerald-600 py-6">
       <CenterColumn>
         <LogoLink />
       </CenterColumn>

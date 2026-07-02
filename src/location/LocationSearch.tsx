@@ -18,28 +18,38 @@ export const LocationSearch = ({
   // This avoids hitting the API on every key press
   const debouncedSearchText = useDebouncedState(searchText)
   // This avoids having the options unmounted before they capture a click event
-  const debouncedResultsVisible = useDebouncedState(resultsVisible, 100)
+  const debouncedResultsVisible = useDebouncedState(
+    searchText && resultsVisible,
+    100,
+  )
 
-  const { data, isLoading } = useLocationQuery({ search: debouncedSearchText })
+  const { data, isLoading, isEnabled } = useLocationQuery({
+    search: debouncedSearchText,
+  })
+
+  const onSelectLocationProxy = (location: Location) => {
+    setSearchText('')
+    onSelectLocation(location)
+  }
 
   return (
-    <div className={`flex relative w-md ${className ?? ''}`}>
+    <div className={`flex relative w-md z-10 ${className ?? ''}`}>
       <Input
         type="text"
-        placeholder="Search for a location..."
+        placeholder="🔎 Search for a location..."
         value={searchText}
         onChangeText={setSearchText}
         onFocus={() => setResultsVisible(true)}
         onBlur={() => {
           setResultsVisible(false)
         }}
-        className={`w-md p-2 cursor-pointer ${resultsVisible ? 'rounded-b-none' : 'text-gray-400'}`}
+        className={`w-md p-2 cursor-pointer ${debouncedResultsVisible ? 'rounded-b-none border-b-transparent' : 'text-gray-500'}`}
       />
       {debouncedResultsVisible && (
         <LocationOptionsList
-          isLoading={isLoading}
+          isLoading={isLoading || !debouncedSearchText}
           options={data}
-          onSelectLocation={onSelectLocation}
+          onSelectLocation={onSelectLocationProxy}
           hasSearched={Boolean(debouncedSearchText)}
         />
       )}
