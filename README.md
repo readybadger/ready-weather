@@ -18,6 +18,9 @@ The following command can be used to preview the production build:
 npm run build & npm run preview
 ```
 
+## Preview!
+<img src="preview.png" alt="Ready Weather preview screenshot" width="1024">
+    
 ## Dependencies
 - [Tailwind CSS](https://tailwindcss.com/) for styling.
 - [OpenMeteo](https://open-meteo.com/) for weather data.
