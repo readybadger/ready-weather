@@ -81,7 +81,7 @@ export const WeatherDetails = ({ data }: { data: DailyWeatherData }) => {
     : false
 
   return (
-    <div className="bg-white border-b-emerald-200 border-b p-4 justify-center w-xl rounded-md max-w-full">
+    <div className="bg-white border-b-emerald-200 border-b p-4 justify-center w-xl rounded-md max-w-full animate-[slide-up_0.25s_ease-out_both]">
       <div className="flex items-center justify-between mb-2">
         <span className="grow basis-0 text-left">
           {dayjs(data.date).format('DD MMM')}

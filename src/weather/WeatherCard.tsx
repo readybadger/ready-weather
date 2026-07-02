@@ -12,10 +12,12 @@ export const WeatherCard = ({
   data,
   isSelected,
   onClick,
+  index = 0,
 }: {
   data: DailyWeatherData
   isSelected: boolean
   onClick: VoidFunction
+  index?: number
 }) => {
   const date = dayjs(data.date)
 
@@ -27,7 +29,8 @@ export const WeatherCard = ({
   return (
     <a
       role="button"
-      className={`rounded-md border-b px-2 py-3 space-y-2 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-mist-50 focus-visible:outline-[auto] relative max-md:flex-row max-md:px-4 max-md:space-y-0 max-[30rem]:flex-row-reverse ${selectedClass}`}
+      className={`rounded-md border-b px-2 py-3 space-y-2 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-mist-50 focus-visible:outline-[auto] relative max-md:flex-row max-md:px-4 max-md:space-y-0 max-[30rem]:flex-row-reverse animate-[slide-up_0.25s_ease-out_both] animatio ${selectedClass}`}
+      style={{ animationDelay: `${index * 50}ms` }}
       onClick={onClick}
       href="#weather-details"
     >

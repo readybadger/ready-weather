@@ -19,13 +19,14 @@ export const WeatherList = ({
   return (
     <div className="flex items-stretch space-x-1 mb-4 max-md:flex-col max-md:space-x-0 max-md:space-y-1 max-[30rem]:text-sm">
       {cappedData?.length
-        ? cappedData.map((dayData) => {
+        ? cappedData.map((dayData, index) => {
             const isSelected = dayjs(dayData.date).isSame(selectedDate, 'day')
 
             return (
               <WeatherCard
                 key={dayData.date.toString()}
                 data={dayData}
+                index={index}
                 isSelected={isSelected}
                 onClick={() => onSelect(dayData)}
               />

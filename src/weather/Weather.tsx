@@ -36,7 +36,9 @@ export const Weather = ({
         />
       )}
       <div id="weather-details" className="self-center max-w-full">
-        {selected && <WeatherDetails data={selected} />}
+        {selected && (
+          <WeatherDetails key={selected.date.toString()} data={selected} />
+        )}
       </div>
     </div>
   )
