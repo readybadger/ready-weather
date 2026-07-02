@@ -9,6 +9,7 @@ type LocationResponse = {
       country: string
       latitude: number
       longitude: number
+      timezone: string
     },
   ]
 }
@@ -25,7 +26,7 @@ export const getLocation = async ({
   const response = await fetch(url)
   const responseJson = (await response.json()) as LocationResponse
   return responseJson.results.map(
-    ({ id, name, country, latitude, longitude }) => ({
+    ({ id, name, country, latitude, longitude, timezone }) => ({
       id: id.toString(),
       name,
       country,
@@ -33,6 +34,7 @@ export const getLocation = async ({
         latitude,
         longitude,
       },
+      timezone,
     }),
   )
 }

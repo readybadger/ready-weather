@@ -8,4 +8,5 @@ export type Location = {
   name: string
   country: string
   coords: Coordinates
+  timezone: string
 }
