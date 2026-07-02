@@ -1,5 +1,8 @@
 import type { Location } from './types'
 
+const getLocationKey = (location: Location) =>
+  `${location.coords.lat} ${location.coords.lon}`
+
 const LocationOptionItem = ({
   location,
   onSelectLocation,
@@ -43,6 +46,7 @@ export const LocationOptionsList = ({
         <ul>
           {options?.map((location) => (
             <LocationOptionItem
+              key={getLocationKey(location)}
               location={location}
               onSelectLocation={onSelectLocation}
             />
