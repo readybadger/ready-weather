@@ -17,8 +17,9 @@ export const WeatherCard = ({
     : 'border-mist-200'
 
   return (
-    <div
-      className={`bg-white border rounded-md p-1 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-mist-50 ${selectedClass}`}
+    <button
+      role="button"
+      className={`bg-white border rounded-md p-1 flex flex-col items-center justify-between basis-0 grow cursor-pointer hover:bg-mist-50 focus-visible:outline-[auto] ${selectedClass}`}
       onClick={onClick}
     >
       <span className="text-lg font-medium">
@@ -32,6 +33,6 @@ export const WeatherCard = ({
         })}
       </span>
       <span>{date.format('DD MMM')}</span>
-    </div>
+    </button>
   )
 }
