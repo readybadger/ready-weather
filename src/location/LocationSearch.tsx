@@ -15,6 +15,8 @@ export const LocationSearch = ({
 
   // This avoids hitting the API on every key press
   const debouncedSearchText = useDebouncedState(searchText)
+  // This avoids having the options unmounted before they capture a click event
+  const debouncedResultsVisible = useDebouncedState(resultsVisible, 100)
 
   const { data, isLoading } = useLocationQuery({ search: debouncedSearchText })
 
@@ -26,10 +28,12 @@ export const LocationSearch = ({
         value={searchText}
         onChangeText={setSearchText}
         onFocus={() => setResultsVisible(true)}
-        onBlur={() => setResultsVisible(false)}
+        onBlur={() => {
+          setResultsVisible(false)
+        }}
         className={`w-md p-2 cursor-pointer ${resultsVisible ? 'rounded-b-none' : ''}`}
       />
-      {resultsVisible && (
+      {debouncedResultsVisible && (
         <LocationOptionsList
           isLoading={isLoading}
           options={data}
