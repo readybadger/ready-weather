@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useWeatherQuery } from '../api/useWeatherQuery'
 import { getLocationLabel } from '../location/location-utils'
 import type { Location } from '../location/types'
@@ -13,10 +14,20 @@ export const Weather = ({
 }) => {
   const { data, isLoading } = useWeatherQuery({ location, measurementSystem })
 
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date())
+
   return (
     <div className="flex flex-col justify-center self-stretch">
       <h2 className="text-xl font-medium mb-3">{getLocationLabel(location)}</h2>
-      {isLoading ? 'Loading...' : <WeatherList data={data} />}
+      {isLoading ? (
+        'Loading...'
+      ) : (
+        <WeatherList
+          data={data}
+          selectedDate={selectedDate}
+          onSelect={({ date }) => setSelectedDate(date)}
+        />
+      )}
     </div>
   )
 }
