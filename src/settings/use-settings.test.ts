@@ -9,7 +9,7 @@ describe('useSettings', () => {
       wrapper: SettingsProvider,
     })
 
-    expect(result.current.settings.temperatureScale).toBe('Celsius')
+    expect(result.current.settings.measurementSystem).toBe('metric')
   })
 
   test('throws error when used outside of SettingsProvider', async () => {
@@ -24,9 +24,9 @@ describe('useSettings', () => {
     })
 
     act(() => {
-      result.current.updateSettings({ temperatureScale: 'Fahrenheit' })
+      result.current.updateSettings({ measurementSystem: 'imperial' })
     })
 
-    expect(result.current.settings.temperatureScale).toBe('Fahrenheit')
+    expect(result.current.settings.measurementSystem).toBe('imperial')
   })
 })

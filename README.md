@@ -12,6 +12,9 @@ Ready Weather is a React web app written in Typescript.
 2. `npm i`
 3. `npm run dev` to start the dev server
 
+### Tests
+Run tests with `npm run test`
+
 ### Production preview
 The following command can be used to preview the production build: 
 ```bash
