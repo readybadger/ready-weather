@@ -1,4 +1,5 @@
-export type TemperatureUnit = 'celsius' | 'fahrenheit'
+export type TemperatureUnit = '°C' | '°F'
+export type TemperatureScale = 'celsius' | 'fahrenheit'
 export type WindSpeedUnit = 'mph' | 'kmh'
 
 export type DailyWeatherData = {

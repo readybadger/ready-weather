@@ -59,8 +59,8 @@ export const getWeather = async ({
     latitude: location.coords.latitude,
     longitude: location.coords.longitude,
     timezone: location.timezone,
-    temperature_unit: units.temperature,
-    wind_speed_unit: units.windSpeed,
+    temperature_unit: units.temperatureScale,
+    wind_speed_unit: units.windSpeedUnit,
     past_days: NUM_PAST_DAYS,
     current: ['weather_code', 'temperature_2m'],
     daily: [
@@ -75,7 +75,7 @@ export const getWeather = async ({
   const responseJson = (await response.json()) as WeatherResponse
   return normalizeResponse({
     response: responseJson,
-    temperatureUnit: units.temperature,
-    windSpeedUnit: units.windSpeed,
+    temperatureUnit: units.temperatureUnit,
+    windSpeedUnit: units.windSpeedUnit,
   })
 }
