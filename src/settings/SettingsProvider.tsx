@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { SettingsContext } from './SettingsContext'
-import type { Settings, SettingsContextType } from './types'
+import type { Settings } from './types'
 
 export const SettingsProvider = ({
   children,
@@ -11,15 +11,17 @@ export const SettingsProvider = ({
     temperatureScale: 'Celsius',
   })
 
-  const contextValue: SettingsContextType = {
-    settings,
-    updateSettings: (newSettings: Partial<Settings>) => {
-      setSettings((prevSettings) => ({ ...prevSettings, ...newSettings }))
-    },
-  }
+  const updateSettings = useCallback((newSettings: Partial<Settings>) => {
+    setSettings((prevSettings) => ({ ...prevSettings, ...newSettings }))
+  }, [])
 
   return (
-    <SettingsContext.Provider value={contextValue}>
+    <SettingsContext.Provider
+      value={{
+        settings,
+        updateSettings,
+      }}
+    >
       {children}
     </SettingsContext.Provider>
   )
