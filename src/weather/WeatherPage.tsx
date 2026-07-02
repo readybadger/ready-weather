@@ -7,7 +7,7 @@ import useSettings from '../settings/use-settings'
 
 export const WeatherPage = () => {
   const {
-    settings: { location },
+    settings: { location, measurementSystem },
     updateSettings,
   } = useSettings()
 
@@ -18,9 +18,13 @@ export const WeatherPage = () => {
   }
 
   return (
-    <CenterColumn className="py-6">
-      <LocationSearch onSelectLocation={onSelectLocation} />
-      {location ? <Weather location={location} /> : <NoLocationMessage />}
+    <CenterColumn className="py-6 flex flex-col justify-center items-center text-center">
+      <LocationSearch onSelectLocation={onSelectLocation} className="mb-4" />
+      {location ? (
+        <Weather location={location} measurementSystem={measurementSystem} />
+      ) : (
+        <NoLocationMessage />
+      )}
     </CenterColumn>
   )
 }

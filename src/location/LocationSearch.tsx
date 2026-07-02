@@ -7,8 +7,10 @@ import { LocationOptionsList } from './LocationOptionsList'
 
 export const LocationSearch = ({
   onSelectLocation,
+  className,
 }: {
   onSelectLocation: (location: Location) => void
+  className?: string
 }) => {
   const [searchText, setSearchText] = useState('')
   const [resultsVisible, setResultsVisible] = useState(false)
@@ -21,7 +23,7 @@ export const LocationSearch = ({
   const { data, isLoading } = useLocationQuery({ search: debouncedSearchText })
 
   return (
-    <div className="flex relative w-md">
+    <div className={`flex relative w-md ${className ?? ''}`}>
       <Input
         type="text"
         placeholder="Search for a location..."
