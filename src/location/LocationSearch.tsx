@@ -23,7 +23,7 @@ export const LocationSearch = ({
     100,
   )
 
-  const { data, isLoading, isEnabled } = useLocationQuery({
+  const { data, isLoading } = useLocationQuery({
     search: debouncedSearchText,
   })
 
