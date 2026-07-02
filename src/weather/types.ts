@@ -4,7 +4,7 @@ export type WindSpeedUnit = 'mph' | 'kmh'
 
 export type DailyWeatherData = {
   date: Date
-  weatherCode: string //WMO code
+  weatherCode: number //WMO code
   minTemperature: number
   maxTemperature: number
   meanTemperature: number
@@ -19,5 +19,5 @@ export type PastWeatherData = {
 
 export type CurrentWeatherData = DailyWeatherData & {
   currentTemperature: number
-  currentWeatherCode: string //WMO code
+  currentWeatherCode: number //WMO code
 }

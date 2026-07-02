@@ -17,11 +17,11 @@ type WeatherResponse = {
     temperature_2m_min: number[]
     temperature_2m_mean: number[]
     precipitation_probability_max: number[]
-    weather_code: string[]
+    weather_code: number[]
   }
   current: {
     time: string
-    weather_code: string
+    weather_code: number
     temperature_2m: number
   }
 }
