@@ -58,7 +58,7 @@ export const getWeather = async ({
   const url = getWeatherApiUrl({
     latitude: location.coords.latitude,
     longitude: location.coords.longitude,
-    timezone: location.timezone,
+    timezone: location.timezone ?? 'auto',
     temperature_unit: units.temperatureScale,
     wind_speed_unit: units.windSpeedUnit,
     past_days: NUM_PAST_DAYS,
