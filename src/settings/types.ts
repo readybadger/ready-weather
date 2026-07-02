@@ -1,9 +1,9 @@
 import type { Location } from '../location/types'
 
-export type TemperatureScale = 'Celsius' | 'Fahrenheit'
+export type MeasurementSystem = 'imperial' | 'metric'
 
 export type Settings = {
-  temperatureScale: TemperatureScale
+  measurementSystem: MeasurementSystem
   location?: Location
 }
 

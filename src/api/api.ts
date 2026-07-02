@@ -6,9 +6,11 @@ const authParam = {
   appid: API_KEY,
 }
 
+type SearchParameters = Record<string, string | string[] | number>
+
 export const getApiUrl = (
   path: string,
-  searchParams: Record<string, string>,
+  searchParams: SearchParameters,
   baseUrl: string,
 ) =>
   new URL(
@@ -19,8 +21,8 @@ export const getApiUrl = (
     baseUrl,
   )
 
-export const getWeatherApiUrl = (searchParams: Record<string, string>) =>
+export const getWeatherApiUrl = (searchParams: SearchParameters) =>
   getApiUrl(`v1/forecast`, searchParams, API_BASE_URL)
 
-export const getGeocodeApiUrl = (searchParams: Record<string, string>) =>
+export const getGeocodeApiUrl = (searchParams: SearchParameters) =>
   getApiUrl(`v1/search`, searchParams, GEOCODING_API_BASE_URL)

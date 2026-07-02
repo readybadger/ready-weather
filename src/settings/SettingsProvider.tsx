@@ -8,7 +8,7 @@ export const SettingsProvider = ({
   children: React.ReactNode
 }) => {
   const [settings, setSettings] = useState<Settings>({
-    temperatureScale: 'Celsius',
+    measurementSystem: 'metric',
   })
 
   const updateSettings = useCallback((newSettings: Partial<Settings>) => {
