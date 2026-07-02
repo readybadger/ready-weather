@@ -68,7 +68,18 @@ const PrecipitationBlock = ({ data }: { data: DailyWeatherData }) => {
     </div>
   )
 }
+
+const Indicator = () => {
+  return (
+    <div className="rounded-full bg-emerald-500 size-1 absolute left-1 top-1" />
+  )
+}
+
 export const WeatherDetails = ({ data }: { data: DailyWeatherData }) => {
+  const hasCurrentTemperature = data.currentTemperatureDate
+    ? Math.abs(dayjs(data.currentTemperatureDate).diff(dayjs(), 'minutes')) < 16
+    : false
+
   return (
     <div className="bg-white border-b-emerald-200 border-b p-4 justify-center w-xl rounded-md max-w-full">
       <div className="flex items-center justify-between mb-2">
@@ -78,8 +89,18 @@ export const WeatherDetails = ({ data }: { data: DailyWeatherData }) => {
         <h2 className="text-2xl grow basis-0">{getRelativeDate(data.date)}</h2>
 
         <span className="grow basis-0 text-right">
-          {data.meanTemperature}
-          {data.temperatureUnit}
+          {hasCurrentTemperature ? (
+            <span className="relative pl-3">
+              <Indicator />
+              {data.currentTemperature}
+              {data.temperatureUnit}
+            </span>
+          ) : (
+            <>
+              {data.meanTemperature}
+              {data.temperatureUnit}
+            </>
+          )}
         </span>
       </div>
       <Seperator />

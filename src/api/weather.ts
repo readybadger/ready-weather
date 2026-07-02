@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import type { Location } from '../location/types'
 import type { MeasurementSystem } from '../settings/types'
 import { getMeasurementUnits } from '../utils/getMeasurementUnits'
@@ -38,20 +39,30 @@ const normalizeResponse = ({
   temperatureUnit: TemperatureUnit
   windSpeedUnit: WindSpeedUnit
 }): DailyWeatherData[] =>
-  response.daily.time.map((day, index) => ({
-    date: new Date(day),
-    maxTemperature: response.daily.temperature_2m_max[index],
-    minTemperature: response.daily.temperature_2m_min[index],
-    meanTemperature: response.daily.temperature_2m_mean[index],
-    precipitationSum: response.daily.precipitation_sum[index],
-    precipitationProbabilityPercent:
-      response.daily.precipitation_probability_max[index],
-    temperatureUnit: temperatureUnit,
-    weatherCode: response.daily.weather_code[index],
-    maxWindSpeed: response.daily.wind_speed_10m_max[index],
-    maxWindGusts: response.daily.wind_gusts_10m_max[index],
-    windSpeedUnit: windSpeedUnit,
-  }))
+  response.daily.time.map((day, index) => {
+    const isCurrentDay = dayjs(day).isSame(dayjs(response.current.time), 'day')
+
+    return {
+      date: new Date(day),
+      maxTemperature: response.daily.temperature_2m_max[index],
+      minTemperature: response.daily.temperature_2m_min[index],
+      meanTemperature: response.daily.temperature_2m_mean[index],
+      precipitationSum: response.daily.precipitation_sum[index],
+      precipitationProbabilityPercent:
+        response.daily.precipitation_probability_max[index],
+      temperatureUnit: temperatureUnit,
+      weatherCode: response.daily.weather_code[index],
+      maxWindSpeed: response.daily.wind_speed_10m_max[index],
+      maxWindGusts: response.daily.wind_gusts_10m_max[index],
+      windSpeedUnit: windSpeedUnit,
+      currentTemperature: isCurrentDay
+        ? response.current.temperature_2m
+        : undefined,
+      currentTemperatureDate: isCurrentDay
+        ? new Date(response.current.time)
+        : undefined,
+    }
+  })
 
 export const getWeather = async ({
   location,

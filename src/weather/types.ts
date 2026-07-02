@@ -14,13 +14,6 @@ export type DailyWeatherData = {
   maxWindGusts: number
   precipitationSum: number
   precipitationProbabilityPercent: number
-}
-
-export type PastWeatherData = {
-  rainSumMm: number
-}
-
-export type CurrentWeatherData = DailyWeatherData & {
-  currentTemperature: number
-  currentWeatherCode: number //WMO code
+  currentTemperatureDate?: Date
+  currentTemperature?: number
 }

@@ -4,7 +4,7 @@ import { getRelativeDate } from '../utils/getCalendarDate'
 
 const Indicator = () => {
   return (
-    <div className="rounded-full bg-emerald-800 size-1 absolute left-1 top-1" />
+    <div className="rounded-full bg-emerald-500 size-1 absolute left-1 top-1" />
   )
 }
 
