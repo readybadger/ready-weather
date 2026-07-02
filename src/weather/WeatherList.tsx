@@ -17,7 +17,7 @@ export const WeatherList = ({
   const cappedData = useMemo(() => data?.slice(0, MAX_ITEMS), [data])
 
   return (
-    <div className="flex items-stretch space-x-1">
+    <div className="flex items-stretch space-x-1 mb-4">
       {cappedData?.length
         ? cappedData.map((dayData) => {
             const isSelected = dayjs(dayData.date).isSame(selectedDate, 'day')

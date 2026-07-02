@@ -11,7 +11,7 @@ const LocationOptionItem = ({
   return (
     <li
       onClick={() => onSelectLocation(location)}
-      className="cursor-pointer hover:bg-amber-50 p-2"
+      className="cursor-pointer hover:bg-mist-50 p-2"
     >
       {getLocationLabel(location)}
     </li>
@@ -36,7 +36,7 @@ export const LocationOptionsList = ({
   )
 
   return (
-    <div className="absolute bg-stone-100 border-2  border-t-0 w-full top-full drop-shadow-md z-20 shadow-black rounded-b-sm">
+    <div className="absolute bg-white border border-stone-200 border-t-0 w-full top-full drop-shadow-md z-20 shadow-black rounded-b-md">
       {isLoading ? (
         <div className="p-2">Loading...</div>
       ) : (

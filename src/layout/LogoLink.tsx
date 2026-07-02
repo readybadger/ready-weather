@@ -3,7 +3,7 @@ export const LogoLink = ({
 }: {
   variant?: 'dark' | 'light'
 }) => {
-  const colorClass = variant === 'dark' ? 'text-stone-800' : 'text-stone-200'
+  const colorClass = variant === 'dark' ? 'text-stone-800' : 'text-white'
 
   return (
     <a className={`text-4xl ${colorClass}`} href="/">
