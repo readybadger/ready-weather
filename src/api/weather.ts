@@ -16,6 +16,9 @@ type WeatherResponse = {
     temperature_2m_max: number[]
     temperature_2m_min: number[]
     temperature_2m_mean: number[]
+    wind_speed_10m_max: number[]
+    wind_gusts_10m_max: number[]
+    precipitation_sum: number[]
     precipitation_probability_max: number[]
     weather_code: number[]
   }
@@ -40,10 +43,13 @@ const normalizeResponse = ({
     maxTemperature: response.daily.temperature_2m_max[index],
     minTemperature: response.daily.temperature_2m_min[index],
     meanTemperature: response.daily.temperature_2m_mean[index],
+    precipitationSum: response.daily.precipitation_sum[index],
     precipitationProbabilityPercent:
       response.daily.precipitation_probability_max[index],
     temperatureUnit: temperatureUnit,
     weatherCode: response.daily.weather_code[index],
+    maxWindSpeed: response.daily.wind_speed_10m_max[index],
+    maxWindGusts: response.daily.wind_gusts_10m_max[index],
     windSpeedUnit: windSpeedUnit,
   }))
 
@@ -69,6 +75,9 @@ export const getWeather = async ({
       'temperature_2m_min',
       'temperature_2m_mean',
       'precipitation_probability_max',
+      'wind_speed_10m_max',
+      'wind_gusts_10m_max',
+      'precipitation_sum,',
     ],
   })
   const response = await fetch(url)

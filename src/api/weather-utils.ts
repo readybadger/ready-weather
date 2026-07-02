@@ -17,39 +17,39 @@ export const getWeatherCodeDescription = (code: number): string | undefined => {
 
     // Drizzle: Light, moderate, and dense intensity
     case 51:
-      return 'Drizzle: Light intensity'
+      return 'Drizzle, light intensity'
     case 53:
-      return 'Drizzle: Moderate intensity'
+      return 'Drizzle, moderate intensity'
     case 55:
-      return 'Drizzle: Dense intensity'
+      return 'Drizzle, dense intensity'
 
     // Freezing Drizzle: Light and dense intensity
     case 56:
-      return 'Freezing drizzle: Light intensity'
+      return 'Freezing drizzle, light intensity'
     case 57:
-      return 'Freezing drizzle: Dense intensity'
+      return 'Freezing drizzle, dense intensity'
 
     // Rain: Slight, moderate and heavy intensity
     case 61:
-      return 'Rain: Slight intensity'
+      return 'Rain, slight intensity'
     case 63:
-      return 'Rain: Moderate intensity'
+      return 'Rain, moderate intensity'
     case 65:
-      return 'Rain: Heavy intensity'
+      return 'Rain, heavy intensity'
 
     // Freezing Rain: Light and heavy intensity
     case 66:
-      return 'Freezing rain: Light intensity'
+      return 'Freezing rain, light intensity'
     case 67:
-      return 'Freezing rain: Heavy intensity'
+      return 'Freezing rain, heavy intensity'
 
     // Snow fall: Slight, moderate, and heavy intensity
     case 71:
-      return 'Snow fall: Slight intensity'
+      return 'Snow fall, slight intensity'
     case 73:
-      return 'Snow fall: Moderate intensity'
+      return 'Snow fall, moderate intensity'
     case 75:
-      return 'Snow fall: Heavy intensity'
+      return 'Snow fall, heavy intensity'
 
     // Snow grains
     case 77:
@@ -57,21 +57,21 @@ export const getWeatherCodeDescription = (code: number): string | undefined => {
 
     // Rain showers: Slight, moderate, and violent
     case 80:
-      return 'Rain showers: Slight intensity'
+      return 'Rain showers, slight intensity'
     case 81:
-      return 'Rain showers: Moderate intensity'
+      return 'Rain showers, moderate intensity'
     case 82:
-      return 'Rain showers: Violent intensity'
+      return 'Rain showers, violent intensity'
 
     // Snow showers slight and heavy
     case 85:
-      return 'Snow showers: Slight intensity'
+      return 'Snow showers, slight intensity'
     case 86:
-      return 'Snow showers: Heavy intensity'
+      return 'Snow showers, heavy intensity'
 
     // Thunderstorm: Slight or moderate
     case 95:
-      return 'Thunderstorm: Slight or moderate'
+      return 'Thunderstorm, slight or moderate'
 
     // Thunderstorm with slight and heavy hail
     case 96:

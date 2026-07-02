@@ -10,6 +10,9 @@ export type DailyWeatherData = {
   meanTemperature: number
   temperatureUnit: TemperatureUnit
   windSpeedUnit: WindSpeedUnit
+  maxWindSpeed: number
+  maxWindGusts: number
+  precipitationSum: number
   precipitationProbabilityPercent: number
 }
 

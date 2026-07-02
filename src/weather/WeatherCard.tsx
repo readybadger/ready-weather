@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import type { DailyWeatherData } from './types'
+import { getRelativeDate } from '../utils/getCalendarDate'
 
 const Indicator = () => {
   return (
@@ -32,14 +33,7 @@ export const WeatherCard = ({
     >
       {isToday && <Indicator />}
       <span className="basis-0 grow max-[30rem]:hidden text-neutral-500">
-        {dayjs(date).calendar(dayjs(), {
-          lastDay: '[Yesterday]',
-          lastWeek: 'dddd',
-          nextWeek: 'dddd',
-          nextDay: '[Tomorrow]',
-          sameDay: '[Today]',
-          sameElse: 'dddd',
-        })}
+        {getRelativeDate(date)}
       </span>
       <span className="flex basis-0 grow justify-center">
         <span className="font-medium">
